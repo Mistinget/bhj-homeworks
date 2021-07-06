@@ -92,17 +92,3 @@ class Game {
 }
 
 new Game(document.getElementById('game'))
-
-
-
-// const currentSymbolValue = this.currentSymbol.textContent;
-
-// function keyup(event) {
-//     let keySymbol = event.key;
-//     if (currentSymbolValue === keySymbol) { //3.Если два символа одинаковые, вызывать метод *this.success*
-//         this.success();
-//     } else if (keySymbol != undefined && currentSymbolValue != keySymbol) { //Если два символа отличаются, вызвать метод *this.fail*
-//         this.fail();
-//     }
-//     console.log(keySymbol, typeof currentSymbolValue, currentSymbolValue);
-// };
