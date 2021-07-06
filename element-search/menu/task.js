@@ -2,19 +2,38 @@ const menuCollection = document.getElementsByClassName("menu__link"); //колл
 const menuSub = document.getElementsByClassName("menu_sub"); //коллекция выпадающ. меню
 const elemCollect = Array.from(menuCollection);
 
-for (elem of menuCollection) {
-    menuCollection[elem].onlick = function(event) {
+// let onclick = (event) => {
+//     event.preventDefault();
+//     let currentItem = event.target;
+//     let nextSibling = currentItem.nextElementSibling;
+//     if (nextSibling != null) {
+//         nextSibling.classList.add("menu_active");
+//     }
+// }
+
+for (let i = 0; i < menuCollection.length; i++) {
+    let elemMenu = menuCollection[i];
+    console.log(elemMenu);
+    elemMenu.onlick = (event) => {
+        let currentItem = event.target;
         event.preventDefault();
-        console.log("click");
+        if (elemMenu == currentItem) {
+            let nextSibling = currentItem.nextElementSibling;
+            if (nextSibling != null) {
+                nextSibling.classList.add("menu_active");
+            }
+            console.log(currentItem, event.target, event.currentTarget);
+        }
+
     };
 };
 
-function onClick() {
-    menuSub[0].className = 'menu menu_sub menu_active';
 
-};
-console.log(elemCollect[1]);
-console.log(menuSub);
+
+// function onClick() {
+//     menuSub[0].className = 'menu menu_sub menu_active';
+
+// };
 
 //elemCollect[1].onclick = onClick;
 // for (let i; i < elemCollect.length; i++) {
@@ -22,9 +41,9 @@ console.log(menuSub);
 //     console.log(elemCollect.item(i));
 // }
 
-for (let menuItem of menuCollection) {
-    menuItem.onclick = function() {
-        menuSub.item(1).className = 'menu menu_sub menu_active';
-    }
-    console.log(menuItem[0]);
-};
+// for (let menuItem of menuCollection) {
+//     menuItem.onclick = function() {
+//         menuSub.item(1).className = 'menu menu_sub menu_active';
+//     }
+//     console.log(menuItem[0]);
+// };

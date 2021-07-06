@@ -17,32 +17,18 @@ class Game {
     }
 
     registerEvents() {
-        /*
-          TODO:
-          Написать обработчик события, который откликается
-          на каждый введённый символ.
-          В случае правильного ввода слова вызываем this.success()
-          При неправильном вводе символа - this.fail();
-         */
+        this.currentSymbol = document.querySelector('.symbol_current'); //1.Получить DOM-элемент текущего символа, который необходимо ввести (свойство *this.currentSymbol*)
 
-        function keyup(event) {
-            let Symbol = event.key;
-            console.log(Symbol, typeof Symbol, this.currentSymbol);
-        }
+        let keydown = (event) => {
+            let symbol = event.key;
+            if (this.currentSymbol.textContent == symbol) { //3.Если два символа одинаковые, вызывать метод *this.success*
+                this.success();
+            } else if (symbol != undefined && this.currentSymbol.textContent != symbol) { //Если два символа отличаются, вызвать метод *this.fail*
+                this.fail();
+            }
+        };
 
-        this.keySymbol = document.addEventListener('keyup', keyup); //2.Получить символ, который был введён с клавиатуры.
-        console.log(this.keySymbol, this.currentSymbol);
-
-        this.currentSymbol = this.wordElement.querySelector('.symbol_current'); //1.Получить DOM-элемент текущего символа, который необходимо ввести (свойство *this.currentSymbol*)
-        console.log(this.currentSymbol);
-
-        const currentSymbolValue = this.currentSymbol.textContent;
-        if (currentSymbolValue === this.keySymbol) { //3.Если два символа одинаковые, вызывать метод *this.success*
-            this.success();
-        } else if (this.keySymbol != undefined && currentSymbolValue != this.keySymbol) { //Если два символа отличаются, вызвать метод *this.fail*
-            this.fail();
-        }
-        console.log(currentSymbolValue);
+        this.keySymbol = document.addEventListener('keydown', keydown); //2.Получить символ, который был введён с клавиатуры.
     }
 
     success() {
@@ -106,3 +92,17 @@ class Game {
 }
 
 new Game(document.getElementById('game'))
+
+
+
+// const currentSymbolValue = this.currentSymbol.textContent;
+
+// function keyup(event) {
+//     let keySymbol = event.key;
+//     if (currentSymbolValue === keySymbol) { //3.Если два символа одинаковые, вызывать метод *this.success*
+//         this.success();
+//     } else if (keySymbol != undefined && currentSymbolValue != keySymbol) { //Если два символа отличаются, вызвать метод *this.fail*
+//         this.fail();
+//     }
+//     console.log(keySymbol, typeof currentSymbolValue, currentSymbolValue);
+// };
