@@ -15,23 +15,3 @@ tabNavigation.onclick = function(event) {
     currenContent.classList.remove("tab__content_active");
     content[index].classList.add("tab__content_active");
 };
-
-
-
-
-// let index = arrayTab.findIndex(function(elem) {
-//     if (elem = currentItem) {
-//         console.log(elem, arrayTab)
-//         return elem;
-//     }
-// });
-
-// function(elem) {
-//     if (elem = currentItem) {
-//         return elem;
-//     } else {
-//         return fallse;
-//     }
-// }
-
-//elem => elem = document.querySelector(".tab_active")

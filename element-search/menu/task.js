@@ -11,22 +11,42 @@ const elemCollect = Array.from(menuCollection);
 //     }
 // }
 
-for (let i = 0; i < menuCollection.length; i++) {
-    let elemMenu = menuCollection[i];
-    console.log(elemMenu);
-    elemMenu.onlick = (event) => {
-        let currentItem = event.target;
-        event.preventDefault();
-        if (elemMenu == currentItem) {
-            let nextSibling = currentItem.nextElementSibling;
-            if (nextSibling != null) {
-                nextSibling.classList.add("menu_active");
-            }
-            console.log(currentItem, event.target, event.currentTarget);
-        }
+let elemMenu;
 
-    };
+// for (let i = 0; i < menuCollection.length; i++) {
+//     let elemMenu = menuCollection[i];
+//     console.log(elemMenu);
+//     elemMenu.onlick = (event) => {
+//         let currentItem = event.target;
+//         event.preventDefault();
+//         if (elemMenu == currentItem) {
+//             let nextSibling = currentItem.nextElementSibling;
+//             if (currentItem.nextElementSibling != null) {
+//                 nextSibling.classList.add("menu_active");
+//                 console.log(nextSibling);
+//             }
+//             console.log(currentItem, event.target, event.currentTarget);
+//         }
+
+//     };
+// };
+
+function onlick(i, event) {
+    let currentItem = event.target;
+    elemMenu = menuCollection[i];
+    event.preventDefault();
+    if (elemMenu == currentItem) {
+        let nextSibling = currentItem.nextElementSibling;
+        if (currentItem.nextElementSibling != null) {
+            nextSibling.classList.add("menu_active");
+            console.log(nextSibling);
+        }
+        console.log(currentItem, event.target, event.currentTarget);
+    }
+
 };
+
+menuCollection.addEventListener("click", onlick(1, onclick));
 
 
 
