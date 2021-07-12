@@ -1,11 +1,36 @@
 "use strict"
 
-const elem = document.getElementsByClassName("reveal");
-const viewportHeight = window.innerHeight;
+const reveal = document.getElementsByClassName("reveal");
 
-const elemTop = elem.item(0).getBoundingClientRect();
-console.log(elemTop);
+// function inViewport(elem) {
+//     const viewportHeight = window.innerHeight;
+//     const elemTop = reveal[elem].getBoundingClientRect().top;
+//     if (elemTop < viewportHeight && elemTop > 0) {
+//         console.log(true);
+//         reveal[elem].classList.add("reveal_active");
+//     }
+// };
 
-window.addEventListener("scroll", () => {
-    elemTop.innerHTML = window.scrollY;
-})
+// for (let i = 0; i < reveal.length; i++) {
+//     inViewport(i);
+//     window.onscroll = inViewport(i);
+// };
+
+function isVisible(elem) {
+    let position = elem.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    let topVisible = position.top > 0 && position.top < viewportHeight;
+    let bottomVisible = position.bottom < viewportHeight && position.bottom > 0;
+    return topVisible || bottomVisible;
+};
+
+function showVisible() {
+    for (let item of reveal) {
+        if (isVisible(item)) {
+            item.classList.add("reveal_active");
+        }
+    }
+}
+
+showVisible();
+window.onscroll = showVisible;
