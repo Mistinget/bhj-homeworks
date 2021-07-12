@@ -1,4 +1,56 @@
 "use strict"
+
+const sliders = document.getElementsByClassName("slider__item");
+const slidersArr = Array.from(sliders);
+const sliderItems = document.querySelector(".slider__items")
+const prev = document.querySelector(".slider__arrow_prev");
+const next = document.querySelector(".slider__arrow_next");
+
+function changeNext() {
+    let currentSlide = slidersArr.findIndex(elem => elem.classList.contains("slider__item_active"));
+    slidersArr[currentSlide].classList.remove("slider__item_active");
+    let nextSlide = slidersArr[currentSlide].nextElementSibling || slidersArr[0];
+    nextSlide.className = "slider__item slider__item_active";
+}
+next.onclick = changeNext;
+
+function changePrev() {
+    let currentSlide = slidersArr.findIndex(elem => elem.classList.contains("slider__item_active"));
+    slidersArr[currentSlide].classList.remove("slider__item_active");
+    let prevSlide = slidersArr[currentSlide].previousElementSibling || sliderItems.lastElementChild;
+    prevSlide.className = "slider__item slider__item_active";
+}
+prev.onclick = changePrev;
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// function changeSlade(rout) {
+//     if (slidersArr[currentSlide].classList.contains("slider__item_active")) {
+//         slidersArr[currentSlide].classList.remove("slider__item_active");
+//         currentSlide = (rout + slidersArr.length) % slidersArr.length;
+//         slidersArr[currentSlide].classList.add("slider__item_active");
+//     } else {
+//         slidersArr[currentSlide].classList.add("slider__item_active");
+//     }
+// };
+
+// function goToRight() {
+//     changeSlade(currentSlide + 1)
+// };
+
+// function goToLeft() {
+//     changeSlade(currentSlide - 1)
+// };
+
+// prev.onclick = goToLeft;
+// next.onclick = goToRight;
+
+
+
 // const sliders = document.getElementsByClassName("slider__item");
 // const arrows = document.getElementsByClassName("slider__arrow");
 // const slidersContain = document.getElementsByClassName("slider__items");
@@ -31,33 +83,6 @@
 //  arrows.item(1).onclick = arrowClick;
 
 
-const sliders = document.getElementsByClassName("slider__item");
-const prev = document.querySelector(".slider__arrow_prev");
-const next = document.querySelector(".slider__arrow_next");
-let currentSlide = 0;
-const slidersArr = Array.from(sliders);
-
-function changeSlade(rout) {
-    if (slidersArr[currentSlide].classList.contains("slider__item_active")) {
-        slidersArr[currentSlide].classList.remove("slider__item_active");
-        currentSlide = (rout + slidersArr.length) % slidersArr.length;
-        slidersArr[currentSlide].classList.add("slider__item_active");
-    } else {
-        slidersArr[currentSlide].classList.add("slider__item_active");
-    }
-};
-
-function goToRight() {
-    changeSlade(currentSlide + 1)
-};
-
-function goToLeft() {
-    changeSlade(currentSlide - 1)
-};
-
-prev.onclick = goToLeft;
-next.onclick = goToRight;
-
 //let currentSlide = slidersArr.findIndex(elem => elem.classList.contains("slider__item_active"));
 
 // if (arrows.item(0).click) {
@@ -75,7 +100,6 @@ next.onclick = goToRight;
 //         console.log(slidersArr[currentSlide]);
 //     };
 // }
-
 
 
 // for (const item of arrows) {

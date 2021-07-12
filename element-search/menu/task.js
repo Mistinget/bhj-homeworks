@@ -5,21 +5,26 @@ const elemCollect = Array.from(menuCollection);
 for (let i = 0; i < menuCollection.length; i++) {
     let elemMenu = menuCollection[i];
     console.log(elemMenu);
-    elemMenu.onlick = (event) => {
-        let currentItem = event.target;
+    elemMenu.onclick = (event) => {
+        console.log(currentTarget);
         event.preventDefault();
-        if (elemMenu == currentItem) {
-            let nextSibling = currentItem.nextElementSibling;
-            if (currentItem.nextElementSibling != null) {
-                nextSibling.classList.add("menu_active");
-                console.log(nextSibling);
-            }
-            console.log(currentItem, event.target, event.currentTarget);
+        //let currentItem = event.target;
+        // if (elemMenu == currentItem) {
+        //     let nextSibling = currentItem.nextElementSibling;
+        //     if (currentItem.nextElementSibling != null) {
+        //         nextSibling.classList.add("menu_active");
+        //         console.log(nextSibling);
+        //     }
+        //     console.log(currentItem, event.target, event.currentTarget);
+        // }
+        if (elemMenu.click) {
+            elemMenu.nextElementSibling.classList.add("menu_active");
         }
-
     };
 };
-
+menuCollection[1].onclick = () => {
+    console.log(currentTarget);
+}
 
 
 
