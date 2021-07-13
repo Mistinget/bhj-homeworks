@@ -3,9 +3,10 @@ const menuSub = document.getElementsByClassName("menu_sub"); //коллекци�
 const elemCollect = Array.from(menuCollection);
 
 function getMenu(event) {
-    event.preventDefault();
+
     let currentMenu = event.target;
     if (currentMenu.nextElementSibling) {
+        event.preventDefault();
         currentMenu.nextElementSibling.className = "menu menu_sub menu_active";
     }
 
