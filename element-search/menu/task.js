@@ -2,29 +2,42 @@ const menuCollection = document.getElementsByClassName("menu__link"); //колл
 const menuSub = document.getElementsByClassName("menu_sub"); //коллекция выпадающ. меню
 const elemCollect = Array.from(menuCollection);
 
-for (let i = 0; i < menuCollection.length; i++) {
-    let elemMenu = menuCollection[i];
-    console.log(elemMenu);
-    elemMenu.onclick = (event) => {
-        console.log(currentTarget);
-        event.preventDefault();
-        //let currentItem = event.target;
-        // if (elemMenu == currentItem) {
-        //     let nextSibling = currentItem.nextElementSibling;
-        //     if (currentItem.nextElementSibling != null) {
-        //         nextSibling.classList.add("menu_active");
-        //         console.log(nextSibling);
-        //     }
-        //     console.log(currentItem, event.target, event.currentTarget);
-        // }
-        if (elemMenu.click) {
-            elemMenu.nextElementSibling.classList.add("menu_active");
-        }
-    };
+function getMenu(event) {
+    event.preventDefault();
+    let currentMenu = event.target;
+    if (currentMenu.nextElementSibling) {
+        currentMenu.nextElementSibling.className = "menu menu_sub menu_active";
+    }
+
 };
-menuCollection[1].onclick = () => {
-    console.log(currentTarget);
+for (let elem of menuCollection) {
+    elem.onclick = getMenu;
 }
+
+
+// for (let i = 0; i < menuCollection.length; i++) {
+//     let elemMenu = menuCollection[i];
+//     console.log(elemMenu);
+//     elemMenu.onclick = (event) => {
+//         console.log(currentTarget);
+//         event.preventDefault();
+//let currentItem = event.target;
+// if (elemMenu == currentItem) {
+//     let nextSibling = currentItem.nextElementSibling;
+//     if (currentItem.nextElementSibling != null) {
+//         nextSibling.classList.add("menu_active");
+//         console.log(nextSibling);
+//     }
+//     console.log(currentItem, event.target, event.currentTarget);
+// }
+//         if (elemMenu.click) {
+//             elemMenu.nextElementSibling.classList.add("menu_active");
+//         }
+//     };
+// };
+// menuCollection[1].onclick = () => {
+//     console.log(currentTarget);
+// }
 
 
 
