@@ -11,16 +11,14 @@ function changeClass(event) {
 
     book.classList.remove("book_fs-big", "book_fs-small", "book_fs-undefined");
     book.classList.add("book_fs-" + this.dataset.size);
-
+    this.classList.add("font-size_active");
 };
 
 for (let item of elem) {
     item.addEventListener("click", changeClass);
-    item.addEventListener("click", (event) => {
-        event.preventDefault();
-        item.classList.add("font-size_active");
-    });
 };
+
+
 
 
 

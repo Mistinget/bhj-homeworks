@@ -1,11 +1,14 @@
 const menuCollection = document.getElementsByClassName("menu__link"); //коллекция ссылок
 const menuSub = document.getElementsByClassName("menu_sub"); //коллекция выпадающ. меню
 const elemCollect = Array.from(menuCollection);
+let clickerNumber = 0;
 
 function getMenu(event) {
-
     let currentMenu = event.target;
-    if (currentMenu.nextElementSibling) {
+    clickerNumber += 1;
+    if (clickerNumber % 2 === 0) {
+        currentMenu.nextElementSibling.classList.toggle("menu_active");
+    } else if (currentMenu.nextElementSibling) {
         event.preventDefault();
         currentMenu.nextElementSibling.className = "menu menu_sub menu_active";
     }
@@ -14,6 +17,9 @@ function getMenu(event) {
 for (let elem of menuCollection) {
     elem.onclick = getMenu;
 }
+
+
+
 
 
 // for (let i = 0; i < menuCollection.length; i++) {
