@@ -3,7 +3,29 @@
 let elem = document.getElementsByClassName("font-size"); //нахожу элементы управления
 const elemArr = Array.from(elem);
 const book = document.getElementById("book"); //нахожу элементы с текстом
-const bookArr = Array.from(book);
+
+function changeClass(event) {
+    event.preventDefault();
+    let currentElemIndex = elemArr.findIndex(elem => elem.classList.contains("font-size_active"));
+    elemArr[currentElemIndex].classList.remove("font-size_active");
+
+    book.classList.remove("book_fs-big", "book_fs-small", "book_fs-undefined");
+    book.classList.add("book_fs-" + this.dataset.size);
+
+};
+
+for (let item of elem) {
+    item.addEventListener("click", changeClass);
+    item.addEventListener("click", (event) => {
+        event.preventDefault();
+        item.classList.add("font-size_active");
+    });
+};
+
+
+
+
+
 
 // function chageClass(item) { //смена классов
 //     if (item.click) {
@@ -19,12 +41,6 @@ const bookArr = Array.from(book);
 //     item.onclick = chageClass(item);
 // };
 
-function changeClass() {
-    let currentElemIndex = elemArr.findIndex(elem => elem.classList.contains("font-size_active"));
-    elemArr[currentElemIndex].classList.remove("font-size_active");
-    console.log(this) //??
-};
-changeClass()
 
 // function chageClass() { //смена классов
 //     for (let item of elem) {

@@ -15,6 +15,9 @@ setInterval(changeText, 1000);
 
 
 
+
+
+
 // function chageClass() {
 //     for (let i = 0; i <= (rotatorArr.length - 1); i++) {
 //         let next = rotatorArr[i].nextElementSibling;

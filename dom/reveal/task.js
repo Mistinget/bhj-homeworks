@@ -2,20 +2,6 @@
 
 const reveal = document.getElementsByClassName("reveal");
 
-// function inViewport(elem) {
-//     const viewportHeight = window.innerHeight;
-//     const elemTop = reveal[elem].getBoundingClientRect().top;
-//     if (elemTop < viewportHeight && elemTop > 0) {
-//         console.log(true);
-//         reveal[elem].classList.add("reveal_active");
-//     }
-// };
-
-// for (let i = 0; i < reveal.length; i++) {
-//     inViewport(i);
-//     window.onscroll = inViewport(i);
-// };
-
 function isVisible(elem) {
     let position = elem.getBoundingClientRect();
     const viewportHeight = window.innerHeight;
@@ -30,7 +16,22 @@ function showVisible() {
             item.classList.add("reveal_active");
         }
     }
-}
+};
 
-showVisible();
 window.onscroll = showVisible;
+
+
+
+// function inViewport(elem) {
+//     const viewportHeight = window.innerHeight;
+//     const elemTop = reveal[elem].getBoundingClientRect().top;
+//     if (elemTop < viewportHeight && elemTop > 0) {
+//         console.log(true);
+//         reveal[elem].classList.add("reveal_active");
+//     }
+// };
+
+// for (let i = 0; i < reveal.length; i++) {
+//     inViewport(i);
+//     window.onscroll = inViewport(i);
+// };
