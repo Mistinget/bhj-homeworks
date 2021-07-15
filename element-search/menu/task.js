@@ -1,22 +1,21 @@
 const menuCollection = document.getElementsByClassName("menu__link"); //коллекция ссылок
 const menuSub = document.getElementsByClassName("menu_sub"); //коллекция выпадающ. меню
 const elemCollect = Array.from(menuCollection);
-let clickerNumber = 0;
 
 function getMenu(event) {
     let currentMenu = event.target;
-    clickerNumber += 1;
-    if (clickerNumber % 2 === 0) {
-        currentMenu.nextElementSibling.classList.toggle("menu_active");
-    } else if (currentMenu.nextElementSibling) {
+    if (currentMenu.nextElementSibling) {
         event.preventDefault();
-        currentMenu.nextElementSibling.className = "menu menu_sub menu_active";
-    }
-
+        for (let elem of menuSub) {
+            if (elem != currentMenu.nextElementSibling)
+                elem.classList.remove("menu_active");
+        };
+        currentMenu.nextElementSibling.classList.toggle("menu_active");
+    };
 };
 for (let elem of menuCollection) {
     elem.onclick = getMenu;
-}
+};
 
 
 

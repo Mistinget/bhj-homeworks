@@ -5,7 +5,7 @@ const menu = document.querySelector('.dropdown__list'); //выпадающ. сп
 
 //клик по кнопке
 button.onclick = function(event) {
-    menu.classList.add('dropdown__list_active');
+    menu.classList.toggle('dropdown__list_active');
     event.preventDefault();
 };
 
@@ -16,6 +16,9 @@ menu.onclick = function(event) {
     button.innerText = currentItem.innerText;
     menu.classList.remove('dropdown__list_active');
 };
+
+
+
 
 
 // const dropdownItem = document.getElementsByClassName('dropdown__item'); //список пунктов списка
