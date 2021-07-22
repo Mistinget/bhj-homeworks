@@ -36,7 +36,7 @@ function robotMessage() {
 function enter(event) {
     let date = new Date();
 
-    if (event.code == "Enter" && input.value.trim() != '') {
+    if (event.code == "Enter" && input.value.trim() != "") {
         messages.innerHTML += `
   <div class="message message_client">
     <div class="message__time">${date.getHours() + ":" + date.getMinutes()}</div>
@@ -45,7 +45,7 @@ function enter(event) {
     </div>
   </div>
 `;
-        input.value = '';
+        input.value = "";
 
         messages.lastElementChild.scrollIntoView(top);
 
