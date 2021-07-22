@@ -21,6 +21,9 @@ for (let elem of menuCollection) {
 
 
 
+
+
+
 // for (let i = 0; i < menuCollection.length; i++) {
 //     let elemMenu = menuCollection[i];
 //     console.log(elemMenu);
