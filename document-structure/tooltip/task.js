@@ -17,8 +17,8 @@ for (let item of title) {
             tooltip.classList.add("tooltip_active");
         };
         tooltip.textContent = item.getAttribute("title");
-        tooltip.style.left = item.getBoundingClientRect().left + 'px';
-        tooltip.style.top = item.getBoundingClientRect().bottom + 'px';
+        tooltip.style.left = item.getBoundingClientRect().left + "px";
+        tooltip.style.top = item.getBoundingClientRect().bottom + "px";
         console.log(tooltip);
     };
 };
