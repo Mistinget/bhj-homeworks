@@ -18,7 +18,7 @@ class Game {
 
     registerEvents() {
         this.currentSymbol = document.querySelector('.symbol_current'); //1.Получить DOM-элемент текущего символа, который необходимо ввести (свойство *this.currentSymbol*)
-        //let currentSymbolValue = this.currentSymbol.textContent;
+
         let keydown = (event) => {
             let symbol = event.key;
             if (this.currentSymbol.textContent == symbol) { //3.Если два символа одинаковые, вызывать метод *this.success*

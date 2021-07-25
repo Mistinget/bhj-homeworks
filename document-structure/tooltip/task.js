@@ -3,9 +3,8 @@
 let title = document.querySelectorAll(".has-tooltip");
 let tooltip = document.createElement("div");
 tooltip.classList.add("tooltip");
-console.log(tooltip);
 
-for (let item of title) {
+title.forEach(item => {
     item.onclick = (event) => {
         event.preventDefault();
         //item.insertAdjacentHTML("beforeEnd", tooltip);
@@ -19,6 +18,5 @@ for (let item of title) {
         tooltip.textContent = item.getAttribute("title");
         tooltip.style.left = item.getBoundingClientRect().left + "px";
         tooltip.style.top = item.getBoundingClientRect().bottom + "px";
-        console.log(tooltip);
     };
-};
+});
