@@ -29,8 +29,8 @@ product.forEach(elem => {
         let cartProduct = Array.from(document.getElementsByClassName("cart__product"));
         let currentProduct = cartProduct.find(item => item.dataset.id == elem.dataset.id);
         if (currentProduct != undefined) {
-            currentProduct.lastElementChild.textContent =
-                Number(currentProduct.lastElementChild.textContent) +
+            currentProduct.querySelector(".cart__product-count").textContent =
+                Number(currentProduct.querySelector(".cart__product-count").textContent) +
                 Number(elem.querySelector(".product__quantity-value").textContent);
         } else {
             addProduct(elem);
