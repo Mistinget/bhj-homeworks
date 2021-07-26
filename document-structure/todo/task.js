@@ -3,6 +3,7 @@
 const input = document.getElementById("task__input");
 const button = document.getElementById("tasks__add");
 const tasksList = document.getElementById("tasks__list");
+const form = document.getElementById("tasks__form");
 
 function addTask() {
     if (input.value.trim() != "") {
@@ -12,33 +13,29 @@ function addTask() {
     ${input.value}
   </div>
   <a href="#" class="task__remove">&times;</a>
-</div>
+</div> 
     `)
     };
+
     input.value = "";
 
-    let taskRemove = document.getElementsByClassName("task__remove");
+    const taskRemove = Array.from(document.getElementsByClassName("task__remove"));
 
-    for (let item of taskRemove) {
-        item.onclick = (e) => {
-            e.preventDefault();
-            item.parentElement.remove();
-        };
+    taskRemove[taskRemove.length - 1].onclick = (e) => {
+        e.target.parentElement.remove();
     };
 };
 
 button.onclick = addTask;
 
-// input.onkeydown = (event) => {
-//     if (event.code == "Enter" || event.code == "NumpadEnter") {
-//         addTask;
-//     }
+form.onsubmit = (e) => {
+    e.preventDefault();
+};
+
+
+
+
+
+// tasksList.lastElementChild.querySelector(".task__remove").onclick = (e) => {
+//     e.target.parentElement.remove();
 // };
-
-
-
-
-// function findKey(event) {
-//     console.log(event.key, event.code);
-// };
-// input.onkeydown = findKey;

@@ -7,7 +7,6 @@ tooltip.classList.add("tooltip");
 title.forEach(item => {
     item.onclick = (event) => {
         event.preventDefault();
-        //item.insertAdjacentHTML("beforeEnd", tooltip);
         item.appendChild(tooltip);
         if (tooltip.classList.contains("tooltip_active") &&
             tooltip.textContent == item.getAttribute("title")) {
